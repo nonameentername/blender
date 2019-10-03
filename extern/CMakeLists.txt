@@ -37,6 +37,7 @@ if(CMAKE_COMPILER_IS_GNUCC)
 endif()
 
 
+add_subdirectory(gmic)
 add_subdirectory(rangetree)
 add_subdirectory(wcwidth)
 

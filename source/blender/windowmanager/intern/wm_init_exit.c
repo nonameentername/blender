@@ -147,11 +147,14 @@ static void wm_undo_kill_callback(bContext *C)
 	WM_jobs_kill_all_except(CTX_wm_manager(C), CTX_wm_screen(C));
 }
 
+void wm_window_create_main_queue();
+
 bool wm_start_with_console = false; /* used in creator.c */
 
 /* only called once, for startup */
 void WM_init(bContext *C, int argc, const char **argv)
 {
+	wm_window_create_main_queue();
 	
 	if (!G.background) {
 		wm_ghost_init(C);   /* note: it assigns C to ghost! */

@@ -1055,6 +1055,9 @@ add_dependencies(blender makesdna)
 
 setup_blender_sorted_libs()
 target_link_libraries(blender ${BLENDER_SORTED_LIBS})
+#target_link_libraries(blender "${CMAKE_SOURCE_DIR}/extern/gmic64/libcgmicstatic.lib")
+target_link_libraries(blender "${CMAKE_SOURCE_DIR}/../build_linux/lib/libgmic.so")
+
 
 setup_liblinks(blender)
 

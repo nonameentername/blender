@@ -886,6 +886,13 @@ typedef struct NodeShaderUVMap {
 	char uv_map[64];
 } NodeShaderUVMap;
 
+typedef struct NodeGmic {
+	float quality;
+	char flag;
+	char command[1024];
+	char pad[3];
+} NodeGmic;
+
 typedef struct NodeSunBeams {
 	float source[2];
 
@@ -899,6 +906,9 @@ typedef struct NodeSunBeams {
 /* script node flag */
 #define NODE_SCRIPT_AUTO_UPDATE		1
 
+/* GMIC node flag */
+#define CMP_NODE_GMIC_NORMALIZE		1
+#define CMP_NODE_GMIC_EXPLAIN		2
 
 /* frame node flags */
 #define NODE_FRAME_SHRINK		1	/* keep the bounding box minimal */

@@ -1815,6 +1815,9 @@ static uiBlock *wm_block_create_splash(bContext *C, ARegion *ar, void *UNUSED(ar
 	else if (STREQ(STRINGIFY(BLENDER_VERSION_CYCLE), "release")) {
 		version_suffix = STRINGIFY(BLENDER_VERSION_CHAR);
 	}
+
+	version_suffix = "Nodes 0.3.0";
+
 	if (version_suffix != NULL && version_suffix[0]) {
 		/* placed after the version number in the image,
 		 * placing y is tricky to match baseline */

@@ -665,6 +665,7 @@ function(SETUP_BLENDER_SORTED_LIBS)
 		extern_wcwidth
 		bf_intern_libmv
 		extern_sdlew
+		extern_gmic
 
 		bf_intern_glew_mx
 	)

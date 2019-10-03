@@ -2472,6 +2472,36 @@ static void node_composit_buts_cornerpin(uiLayout *UNUSED(layout), bContext *UNU
 {
 }
 
+extern char** explainGmicCommands(const char*, int*);
+extern void freeGmicExplainCommands(char**, int);
+
+static void node_composit_buts_gmic(uiLayout *layout, bContext *UNUSED(C), PointerRNA *ptr)
+{
+	uiItemR(layout, ptr, "quality", UI_ITEM_R_SLIDER, NULL, ICON_NONE);
+	uiItemR(layout, ptr, "command", 0, "", ICON_NONE);
+	uiItemR(layout, ptr, "normalize", 0, NULL, ICON_NONE);
+	uiItemR(layout, ptr, "explain", 0, NULL, ICON_NONE);
+
+	bNode *node = ptr->data;
+	NodeGmic *data = node->storage;
+	if (data->flag & CMP_NODE_GMIC_EXPLAIN) {
+		uiLayout *base = layout;
+
+		int count = 0;
+		char** help = explainGmicCommands(data->command, &count);
+		for (int i = 0; i < count; i += 2) {
+			if (strlen(help[i + 1]) == 0) {
+				base = uiLayoutBox(layout);
+			}
+			uiLayout *row = uiLayoutRow(base, false);
+
+			uiItemL(row, help[i], ICON_NONE);
+			uiItemL(row, help[i + 1], ICON_NONE);
+		}
+		freeGmicExplainCommands(help, count);
+	}
+}
+
 static void node_composit_buts_sunbeams(uiLayout *layout, bContext *UNUSED(C), PointerRNA *ptr)
 {
 	uiItemR(layout, ptr, "source", UI_ITEM_R_EXPAND, "", ICON_NONE);
@@ -2709,6 +2739,10 @@ static void node_composit_set_butfunc(bNodeType *ntype)
 			break;
 		case CMP_NODE_SUNBEAMS:
 			ntype->draw_buttons = node_composit_buts_sunbeams;
+			break;
+		case CMP_NODE_GMIC:
+			ntype->draw_buttons = node_composit_buts_gmic;
+			ntype->width = ntype->width * 2;
 			break;
 		case CMP_NODE_BRIGHTCONTRAST:
 			ntype->draw_buttons = node_composit_buts_brightcontrast;

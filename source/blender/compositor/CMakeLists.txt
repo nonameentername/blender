@@ -41,6 +41,7 @@ set(INC
 	../render/extern/include
 	../render/intern/include
 	../../../extern/clew/include
+	../../../extern/gmic/src
 	../../../intern/guardedalloc
 	../../../intern/atomic
 )
@@ -275,6 +276,12 @@ set(SRC
 	nodes/COM_VectorBlurNode.h
 	operations/COM_VectorBlurOperation.cpp
 	operations/COM_VectorBlurOperation.h
+
+	# GMIC
+	nodes/COM_GmicNode.cpp
+	nodes/COM_GmicNode.h
+	operations/COM_GmicOperation.cpp
+	operations/COM_GmicOperation.h
 
 	nodes/COM_FilterNode.cpp
 	nodes/COM_FilterNode.h
