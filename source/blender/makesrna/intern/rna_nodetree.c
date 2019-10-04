@@ -7607,6 +7607,35 @@ static void def_cmp_planetrackdeform(StructRNA *srna)
   RNA_def_property_update(prop, NC_NODE | NA_EDITED, "rna_Node_update");
 }
 
+static void def_cmp_gmic(StructRNA *srna)
+{
+  PropertyRNA *prop;
+
+  RNA_def_struct_sdna_from(srna, "NodeGmic", "storage");
+
+  prop = RNA_def_property(srna, "quality", PROP_FLOAT, PROP_UNSIGNED);
+  RNA_def_property_float_sdna(prop, NULL, "quality");
+  RNA_def_property_range(prop, 0.0f, 100.0f);
+  RNA_def_property_ui_range(prop, 0.0f, 1.0f, 10, 3);
+  RNA_def_property_ui_text(prop, "Quality", "");
+  RNA_def_property_update(prop, NC_NODE | NA_EDITED, "rna_Node_update");
+
+  prop = RNA_def_property(srna, "normalize", PROP_BOOLEAN, PROP_NONE);
+  RNA_def_property_boolean_sdna(prop, NULL, "flag", CMP_NODE_GMIC_NORMALIZE);
+  RNA_def_property_ui_text(prop, "Normalize image data", "Normalize, convert and mirror image data");
+  RNA_def_property_update(prop, NC_NODE | NA_EDITED, "rna_Node_update");
+
+  prop = RNA_def_property(srna, "explain", PROP_BOOLEAN, PROP_NONE);
+  RNA_def_property_boolean_sdna(prop, NULL, "flag", CMP_NODE_GMIC_EXPLAIN);
+  RNA_def_property_ui_text(prop, "Show parameters for used GIMP filters", "Try to show command parameters and limits in plain text");
+  RNA_def_property_update(prop, NC_NODE | NA_EDITED, "rna_Node_update");
+
+  prop = RNA_def_property(srna, "command", PROP_STRING, PROP_NONE);
+  RNA_def_property_string_sdna(prop, NULL, "command");
+  RNA_def_property_ui_text(prop, "Command", "");
+  RNA_def_property_update(prop, NC_NODE | NA_EDITED, "rna_Node_update");
+}
+
 static void def_cmp_sunbeams(StructRNA *srna)
 {
   PropertyRNA *prop;

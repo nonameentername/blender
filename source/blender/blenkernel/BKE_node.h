@@ -1121,6 +1121,7 @@ void ntreeGPUMaterialNodes(struct bNodeTree *localtree,
 #define CMP_NODE_TONEMAP 302
 #define CMP_NODE_LENSDIST 303
 #define CMP_NODE_SUNBEAMS 304
+#define CMP_NODE_GMIC 305
 
 #define CMP_NODE_COLORCORRECTION 312
 #define CMP_NODE_MASK_BOX 313

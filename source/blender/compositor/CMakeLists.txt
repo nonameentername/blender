@@ -37,6 +37,7 @@ set(INC
   ../render/extern/include
   ../render/intern/include
   ../../../extern/clew/include
+  ../../../extern/gmic/src
   ../../../intern/atomic
   ../../../intern/guardedalloc
 )
@@ -276,6 +277,10 @@ set(SRC
   nodes/COM_VectorBlurNode.h
   operations/COM_VectorBlurOperation.cpp
   operations/COM_VectorBlurOperation.h
+  nodes/COM_GmicNode.cpp
+  nodes/COM_GmicNode.h
+  operations/COM_GmicOperation.cpp
+  operations/COM_GmicOperation.h
   nodes/COM_BlurNode.cpp
   nodes/COM_BlurNode.h
   nodes/COM_BokehBlurNode.cpp

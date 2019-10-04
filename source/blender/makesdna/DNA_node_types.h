@@ -999,6 +999,13 @@ typedef struct NodeShaderUVMap {
   char uv_map[64];
 } NodeShaderUVMap;
 
+typedef struct NodeGmic {
+  float quality;
+  char flag;
+  char command[1024];
+  char _pad[3];
+} NodeGmic;
+
 typedef struct NodeShaderVertexColor {
   char layer_name[64];
 } NodeShaderVertexColor;
@@ -1035,6 +1042,10 @@ typedef struct NodeDenoise {
 
 /* script node flag */
 #define NODE_SCRIPT_AUTO_UPDATE 1
+
+/* GMIC node flag */
+#define CMP_NODE_GMIC_NORMALIZE 1
+#define CMP_NODE_GMIC_EXPLAIN 2
 
 /* ies node mode */
 #define NODE_IES_INTERNAL 0

@@ -97,6 +97,7 @@ set(SRC
   composite/nodes/node_composite_normal.c
   composite/nodes/node_composite_normalize.c
   composite/nodes/node_composite_outputFile.c
+  composite/nodes/node_composite_gmic.c
   composite/nodes/node_composite_pixelate.c
   composite/nodes/node_composite_planetrackdeform.c
   composite/nodes/node_composite_premulkey.c

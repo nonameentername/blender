@@ -222,9 +222,12 @@ static void sound_jack_sync_callback(Main *bmain, int mode, float time)
   }
 }
 
+void wm_window_create_main_queue();
+
 /* only called once, for startup */
 void WM_init(bContext *C, int argc, const char **argv)
 {
+  wm_window_create_main_queue();
 
   if (!G.background) {
     wm_ghost_init(C); /* note: it assigns C to ghost! */

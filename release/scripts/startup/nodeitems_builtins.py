@@ -356,6 +356,7 @@ compositor_node_categories = [
         NodeItem("CompositorNodePixelate"),
         NodeItem("CompositorNodeSunBeams"),
         NodeItem("CompositorNodeDenoise"),
+        NodeItem("CompositorNodeGmic"),
     ]),
     CompositorNodeCategory("CMP_OP_VECTOR", "Vector", items=[
         NodeItem("CompositorNodeNormal"),
